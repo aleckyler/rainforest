@@ -7,7 +7,11 @@
 
 <p>
   <strong>Product:</strong>
-  <%= @review.product.name %>
+  <% if (@review.product == nil) %>
+    <%= "Product does not exist in database." %>
+  <% else %>
+    <%= @review.product.name %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_review_path(@review) %> |

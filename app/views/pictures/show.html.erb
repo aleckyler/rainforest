@@ -7,7 +7,11 @@
 
 <p>
   <strong>Product:</strong>
-  <%= @picture.product.name %>
+  <% if (@picture.product == nil) %>
+    <%= "Product does not exist in database." %>
+  <% else %>
+    <%= @picture.product.name %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_picture_path(@picture) %> |
