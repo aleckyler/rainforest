@@ -5,6 +5,20 @@
   <%= @product.name %>
 </p>
 
+<h3>Picture</h3>
+<% if @product.picture.nil? %>
+  <%= "There is no picture uploaded" %><br>
+    <%= "Add a new picture?" %>
+      <%= render 'pictures/form' %>
+
+<% else %>
+  <p>
+    <%= image_tag @product.picture.url %>
+    <br>
+    Added on: <%= @product.picture.created_at %>
+  </p>
+<% end %>
+
 <p>
   <strong>Description:</strong>
   <%= @product.description %>
